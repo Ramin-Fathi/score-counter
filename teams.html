@@ -26,7 +26,7 @@
         background: linear-gradient(135deg, #1976d2, #1565c0);
         width: 100%;
         padding: 20px 0;
-        position: relative; /* در صورت نیاز */
+        position: relative;
     }
 
     .header-content {
@@ -34,25 +34,34 @@
         margin: 0 auto;
         text-align: center;
         color: #fff;
-        position: relative; /* برای اینکه دکمه back نسبت به این المان موقعیت بگیرد */
+        position: relative; 
     }
 
     /* Back button as an arrow */
     .back-button {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        background: transparent;
-        border: none;
-        color: #fff;
-        font-size: 1.5rem;
-        cursor: pointer;
-        user-select: none;
-    }
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+ /* Larger size for the button itself */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
     .back-button:hover {
-        opacity: 0.8;
-    }
+  background: rgba(255,255,255,0.2);
+}
+
+.back-icon {
+  font-size: 1.5rem;
+}
 
     header h1 {
         margin: 0 0 10px 0;
