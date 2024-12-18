@@ -7,6 +7,95 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+    .home-page {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #f0f0f0, #ffffff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        color: #333;
+    }
+
+    .home-page .container {
+        text-align: center;
+        padding: 20px;
+        max-width: 400px;
+        width: 100%;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .home-page h1 {
+        margin-top: 0;
+        font-weight: 600;
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .home-page .subtitle {
+        font-weight: 300;
+        margin-bottom: 30px;
+        color: #666;
+    }
+
+    .home-page .team-selection {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .home-page .team-selection button {
+        background: #1976d2;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 0;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        transition: background 0.3s, transform 0.1s;
+    }
+
+    .home-page .team-selection button:hover {
+        background: #1565c0;
+    }
+
+    .home-page .team-selection button:active {
+        transform: scale(0.97);
+    }
+    </style>
+</head>
+<body class="home-page">
+    <div class="container">
+        <h1>Score Counter</h1>
+        <p class="subtitle">Choose the number of teams and start tracking scores easily.</p>
+        <div class="team-selection">
+          <button onclick="selectTeams(2)">2 Teams</button>
+          <button onclick="selectTeams(3)">3 Teams</button>
+          <button onclick="selectTeams(4)">4 Teams</button>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Score Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -24,3 +113,4 @@
 </body>
 
 </html>
+ -->
