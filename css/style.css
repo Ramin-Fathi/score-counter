@@ -1,8 +1,31 @@
-body {
-  font-family: sans-serif;
-  margin: 20px;
-}
-.team-selection {
+.team-card {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.team-card input {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.score-display {
+  font-size: 2em;
+  margin: 10px 0;
+}
+
+.team-card button {
+  margin: 5px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* ریسپانسیو برای موبایل */
+@media (max-width: 600px) {
+  .team-card {
+    font-size: 0.9em;
+  }
 }
