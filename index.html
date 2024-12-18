@@ -1,125 +1,167 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Score Counter</title>
+    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <!-- Import Poppins Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- اضافه کردن Font Awesome برای آیکون‌های بهتر -->
+    <!-- Import Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    .home-page {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #f0f0f0, #ffffff);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        color: #333;
-    }
+        /* Base Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f0f0, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
 
-    .home-page .container {
-        text-align: center;
-        padding: 20px;
-        max-width: 400px;
-        width: 100%;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
+        /* Container Styling */
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
 
-    .home-page h1 {
-        margin-top: 0;
-        font-weight: 600;
-        font-size: 2rem;
-        margin-bottom: 10px;
-    }
+        /* Title Styling */
+        .container h1 {
+            margin-top: 0;
+            font-weight: 600;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
 
-    .home-page .subtitle {
-        font-weight: 300;
-        margin-bottom: 30px;
-        color: #666;
-    }
+        /* Subtitle Styling */
+        .container .subtitle {
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #666;
+        }
 
-    .home-page .team-selection {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
+        /* Team Selection Buttons Container */
+        .team-selection {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-    .home-page .team-selection button {
-        background: #1976d2;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        padding: 12px 0;
-        font-size: 1rem;
-        cursor: pointer;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        transition: background 0.3s, transform 0.1s;
-    }
+        /* Team Selection Buttons with Different Colors */
+        .team-selection button:nth-child(1) {
+            background: #4caf50; /* Green */
+        }
 
-    .home-page .team-selection button:hover {
-        background: #1565c0;
-    }
+        .team-selection button:nth-child(2) {
+            background: #ff9800; /* Orange */
+        }
 
-    .home-page .team-selection button:active {
-        transform: scale(0.97);
-    }
+        .team-selection button:nth-child(3) {
+            background: #9c27b0; /* Purple */
+        }
 
-    /* استایل دکمه‌ی اشتراک‌گذاری */
-    .home-page .share-button {
-        background: #1976d2;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        padding: 12px 0;
-        font-size: 1rem;
-        cursor: pointer;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        transition: background 0.3s, transform 0.1s;
-        margin-top: 20px; /* فاصله از دکمه‌های تیم */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px; /* فاصله بین آیکون و متن */
-    }
+        .team-selection button {
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.1s;
+        }
 
-    .home-page .share-button:hover {
-        background: #1565c0;
-        
-    }
+        /* Hover Effect for Team Buttons */
+        .team-selection button:hover {
+            opacity: 0.9;
+        }
 
-    .home-page .share-button:active {
-        transform: scale(0.98);
-    }
+        /* Active State for Team Buttons */
+        .team-selection button:active {
+            transform: scale(0.97);
+        }
 
-    .home-page .share-button .share-icon {
-        font-size: 1.2rem;
-    }
+        /* Share Button Styling */
+        .share-button {
+            background: #1976d2; /* Blue */
+            color: #fff;
+            border: none;
+            border-radius: 50%; /* Circular Shape */
+            padding: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.1s;
+            margin-top: 20px; /* Spacing from Team Buttons */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hover Effect for Share Button */
+        .share-button:hover {
+            background: #1565c0; /* Darker Blue */
+        }
+
+        /* Active State for Share Button */
+        .share-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Share Icon Styling */
+        .share-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            .container h1 {
+                font-size: 1.8rem;
+            }
+
+            .share-button {
+                padding: 12px;
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
-<body class="home-page">
+<body>
     <div class="container">
         <h1>Score Counter</h1>
         <p class="subtitle">Choose the number of teams and start tracking scores easily.</p>
         <div class="team-selection">
-          <button onclick="selectTeams(2)">2 Teams</button>
-          <button onclick="selectTeams(3)">3 Teams</button>
-          <button onclick="selectTeams(4)">4 Teams</button>
+            <button onclick="selectTeams(2)">2 Teams</button>
+            <button onclick="selectTeams(3)">3 Teams</button>
+            <button onclick="selectTeams(4)">4 Teams</button>
         </div>
-        <!-- دکمه‌ی اشتراک‌گذاری -->
-        <button class="share-button" id="shareBtn">
-            <i class="fas fa-share-alt"></i> Share
+        <!-- Share Button -->
+        <button class="share-button" id="shareBtn" title="Share this app">
+            <i class="fas fa-share-alt share-icon"></i>
         </button>
     </div>
+    
+    <!-- External JavaScript File -->
     <script src="js/app.js"></script>
+    
+    <!-- Inline JavaScript for Share Button -->
     <script>
-        // کد مربوط به اشتراک‌گذاری
+        // Share Button Functionality
         document.addEventListener('DOMContentLoaded', () => {
             const shareBtn = document.getElementById('shareBtn');
 
@@ -127,7 +169,7 @@
                 const shareData = {
                     title: 'Score Counter',
                     text: 'Check out this Score Counter app!',
-                    url: 'https://ramin-fathi.github.io/score-counter/'
+                    url: 'https://github.com/yourusername/yourrepository' // Replace with your GitHub repository link
                 };
 
                 if (navigator.share) {
@@ -140,28 +182,34 @@
                 } else if (navigator.clipboard) {
                     try {
                         await navigator.clipboard.writeText(shareData.url);
-                        alert('لینک به کلیپ‌بورد کپی شد!');
+                        alert('Link copied to clipboard!');
                     } catch (err) {
                         console.error('Could not copy text: ', err);
-                        alert('متاسفانه نمی‌توانم لینک را کپی کنم.');
+                        alert('Failed to copy the link.');
                     }
                 } else {
-                    // راه‌حل جایگزین: کپی کردن لینک به کلیپ‌بورد
+                    // Fallback for older browsers: copy link via temporary input
                     const tempInput = document.createElement('input');
                     tempInput.value = shareData.url;
                     document.body.appendChild(tempInput);
                     tempInput.select();
                     try {
                         document.execCommand('copy');
-                        alert('لینک به کلیپ‌بورد کپی شد!');
+                        alert('Link copied to clipboard!');
                     } catch (err) {
                         console.error('Could not copy text: ', err);
-                        alert('متاسفانه نمی‌توانم لینک را کپی کنم.');
+                        alert('Failed to copy the link.');
                     }
                     document.body.removeChild(tempInput);
                 }
             });
         });
+
+        // Placeholder function for team selection
+        function selectTeams(number) {
+            // Redirect to teams page with number of teams as a query parameter
+            window.location.href = `teams.html?teams=${number}`;
+        }
     </script>
 </body>
 </html>
