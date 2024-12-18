@@ -1,5 +1,6 @@
-document.onselectstart = function(){return false;};
-document.oncontextmenu = function(){return false;};
+// حذف دو خط زیر، چون نمی‌خواهیم انتخاب متن کل صفحه رو غیرفعال کنیم:
+// document.onselectstart = function(){return false;};
+// document.oncontextmenu = function(){return false;};
 
 function getNumberOfTeams() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -13,9 +14,7 @@ const numberOfTeams = getNumberOfTeams();
 const teamColors = ['#f2d7d5', '#d5f2d7', '#d7d5f2', '#f2ecd5'];
 
 // Darker tones for buttons
-// Make '+' buttons darker to stand out (more vibrant):
 const addButtonColors = ['#d2605e', '#5fa864', '#6a60d2', '#c6b24a'];
-// Slightly lighter for '-' buttons:
 const subtractButtonColors = ['#e28c89', '#a8e1ab', '#b5aaf2', '#e2d597'];
 
 let teamsData = [];
@@ -32,18 +31,17 @@ teamsData.forEach((team, index) => {
   const teamCard = document.createElement('div');
   teamCard.className = 'team-card';
   teamCard.style.backgroundColor = teamColors[index];
-  teamCard.style.userSelect = 'none';
-  teamCard.style.webkitUserSelect = 'none';
-  teamCard.style.MozUserSelect = 'none';
-  teamCard.style.webkitTouchCallout = 'none';
+  // برای teamCard دیگر user-select را globally none نمی‌کنیم تا input قابل ویرایش باشد.
 
   const teamNameInput = document.createElement('input');
   teamNameInput.type = 'text';
   teamNameInput.value = team.name;
-  teamNameInput.style.userSelect = 'none';
-  teamNameInput.style.webkitUserSelect = 'none';
-  teamNameInput.style.MozUserSelect = 'none';
-  teamNameInput.style.webkitTouchCallout = 'none';
+  // برای اینکه کاربر بتونه اسم تایپ کنه انتخاب متن درون این input رو عادی می‌گذاریم
+  teamNameInput.style.userSelect = 'auto';
+  teamNameInput.style.webkitUserSelect = 'auto';
+  teamNameInput.style.MozUserSelect = 'auto';
+  teamNameInput.style.webkitTouchCallout = 'default';
+  
   teamNameInput.addEventListener('input', (e) => {
     teamsData[index].name = e.target.value;
   });
@@ -51,6 +49,8 @@ teamsData.forEach((team, index) => {
   const scoreDisplay = document.createElement('div');
   scoreDisplay.className = 'score-display';
   scoreDisplay.innerText = team.score;
+  // scoreDisplay میتونه انتخاب نشه ولی مشکلی هم از نظر کاربردی ایجاد نمی‌کنه.
+  // اما برای اطمینان می‌تونیم اینجا هم انتخاب را غیرفعال کنیم چون نیاز به انتخاب متن این بخش نداریم.
   scoreDisplay.style.userSelect = 'none';
 
   const rowContainer = document.createElement('div');
@@ -73,6 +73,7 @@ teamsData.forEach((team, index) => {
   styleButton(addButton, addButtonColors[index], true);
   addButton.style.fontSize = '2rem';
 
+  // این بار فقط روی دکمه‌ها preventDefault انجام می‌دهیم و user-select را برای خود دکمه‌ها none می‌کنیم
   addButton.addEventListener('mousedown', (e) => { e.preventDefault(); startHold(addButton, scoreDisplay, () => {
     teamsData[index].score++;
     updateScores();
@@ -128,10 +129,13 @@ function styleButton(btn, color, isCircle) {
   btn.style.cursor = 'pointer';
   btn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
   btn.style.transition = 'background 0.3s, transform 0.1s';
+
+  // غیرفعال کردن انتخاب متن فقط برای دکمه‌ها
   btn.style.userSelect = 'none';
   btn.style.webkitUserSelect = 'none';
   btn.style.MozUserSelect = 'none';
   btn.style.webkitTouchCallout = 'none';
+
   btn.style.display = 'flex';
   btn.style.alignItems = 'center';
   btn.style.justifyContent = 'center';
