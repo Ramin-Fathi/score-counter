@@ -302,9 +302,9 @@
 </head>
 <body>
     <header>
-        <div 
-         <button class="back-button" id="backBtn">&#x2190;</button>
-        </div>   
+      <button class="back-button" id="backBtn">
+      <span class="back-icon">&#x2190;</span>
+      </button> 
       <div class="header-content">
         <h1>Score Counter</h1>
         <div class="top-actions">
@@ -312,7 +312,7 @@
             Winning score:
             <input type="number" id="winningScore" value="10">
           </div>
-          <button onclick="resetGame()">Reset</button>
+          <button onclick="showResetCountdown()">Reset</button>
         </div>
       </div>
     </header>
