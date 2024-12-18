@@ -1,0 +1,8 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+.team-selection {
+  display: flex;
+  gap: 10px;
+}
