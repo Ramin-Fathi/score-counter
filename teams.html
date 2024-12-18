@@ -26,6 +26,7 @@
         background: linear-gradient(135deg, #1976d2, #1565c0);
         width: 100%;
         padding: 20px 0;
+        position: relative; /* در صورت نیاز */
     }
 
     .header-content {
@@ -33,15 +34,14 @@
         margin: 0 auto;
         text-align: center;
         color: #fff;
-        position: relative;
+        position: relative; /* برای اینکه دکمه back نسبت به این المان موقعیت بگیرد */
     }
 
     /* Back button as an arrow */
     .back-button {
         position: absolute;
+        top: 20px;
         left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
         background: transparent;
         border: none;
         color: #fff;
@@ -193,7 +193,8 @@
 
         .back-button {
             font-size: 1.2rem;
-            left: 10px;
+            top: 15px;
+            left: 15px;
         }
     }
 
