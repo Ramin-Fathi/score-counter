@@ -211,6 +211,7 @@ function startHold(button, scoreDisplay, callback) {
   button.style.transition = 'transform 0.3s ease';
 
   animationInterval = setInterval(() => {
+    if (!holding) return;
     scoreDisplay.style.transform = scaleUp ? 'scale(1.2)' : 'scale(1)';
     button.style.transform = scaleUp ? 'scale(1.2)' : 'scale(1)';
     scaleUp = !scaleUp;
