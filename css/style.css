@@ -1,19 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
 body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 20px;
-  background: linear-gradient(135deg, #f0f0f0, #ffffff);
-  color: #333;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f0f0f0, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-.team-selection, .top-actions {
+.subtitle {
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.top-actions {
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -21,23 +43,37 @@ h1 {
   margin-bottom: 20px;
 }
 
-.team-selection button, .top-actions button {
-  background: #1976d2;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 16px;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: background 0.3s, transform 0.1s;
+.team-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.team-selection button:hover, .top-actions button:hover {
+.team-selection button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.1s;
+}
+
+.team-selection button:hover {
+    background: #1565c0;
+}
+
+.team-selection button:active {
+    transform: scale(0.97);
+}
+
+.top-actions button:hover {
   background: #1565c0;
 }
 
-.team-selection button:active, .top-actions button:active {
+.top-actions button:active {
   transform: scale(0.98);
 }
 
