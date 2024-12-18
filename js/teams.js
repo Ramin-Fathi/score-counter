@@ -1,7 +1,3 @@
-// حذف دو خط زیر، چون نمی‌خواهیم انتخاب متن کل صفحه رو غیرفعال کنیم:
-// document.onselectstart = function(){return false;};
-// document.oncontextmenu = function(){return false;};
-
 function getNumberOfTeams() {
   const urlParams = new URLSearchParams(window.location.search);
   const teams = urlParams.get('teams');
@@ -31,12 +27,11 @@ teamsData.forEach((team, index) => {
   const teamCard = document.createElement('div');
   teamCard.className = 'team-card';
   teamCard.style.backgroundColor = teamColors[index];
-  // برای teamCard دیگر user-select را globally none نمی‌کنیم تا input قابل ویرایش باشد.
-
+// For teamCard, we no longer set user-select to none globally so that the input is editable.
   const teamNameInput = document.createElement('input');
   teamNameInput.type = 'text';
   teamNameInput.value = team.name;
-  // برای اینکه کاربر بتونه اسم تایپ کنه انتخاب متن درون این input رو عادی می‌گذاریم
+ // To allow the user to type a name, we set the text selection in this input to normal.
   teamNameInput.style.userSelect = 'auto';
   teamNameInput.style.webkitUserSelect = 'auto';
   teamNameInput.style.MozUserSelect = 'auto';
@@ -49,8 +44,7 @@ teamsData.forEach((team, index) => {
   const scoreDisplay = document.createElement('div');
   scoreDisplay.className = 'score-display';
   scoreDisplay.innerText = team.score;
-  // scoreDisplay میتونه انتخاب نشه ولی مشکلی هم از نظر کاربردی ایجاد نمی‌کنه.
-  // اما برای اطمینان می‌تونیم اینجا هم انتخاب را غیرفعال کنیم چون نیاز به انتخاب متن این بخش نداریم.
+
   scoreDisplay.style.userSelect = 'none';
 
   const rowContainer = document.createElement('div');
@@ -73,7 +67,7 @@ teamsData.forEach((team, index) => {
   styleButton(addButton, addButtonColors[index], true);
   addButton.style.fontSize = '2rem';
 
-  // این بار فقط روی دکمه‌ها preventDefault انجام می‌دهیم و user-select را برای خود دکمه‌ها none می‌کنیم
+
   addButton.addEventListener('mousedown', (e) => { e.preventDefault(); startHold(addButton, scoreDisplay, () => {
     teamsData[index].score++;
     updateScores();
@@ -130,7 +124,7 @@ function styleButton(btn, color, isCircle) {
   btn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
   btn.style.transition = 'background 0.3s, transform 0.1s';
 
-  // غیرفعال کردن انتخاب متن فقط برای دکمه‌ها
+// Disable text selection for buttons only
   btn.style.userSelect = 'none';
   btn.style.webkitUserSelect = 'none';
   btn.style.MozUserSelect = 'none';
