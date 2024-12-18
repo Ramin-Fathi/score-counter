@@ -156,7 +156,7 @@ function startHold(button, scoreDisplay, callback) {
       callback();
     }
     cleanUpHold(scoreDisplay, button);
-  }, 2000);
+  }, 1500);
 }
 
 /**
