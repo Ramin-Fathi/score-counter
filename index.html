@@ -58,17 +58,17 @@
             gap: 15px;
         }
 
-        /* Team Selection Buttons with Different Colors */
+        /* Team Selection Buttons with Different Purple Shades */
         .team-selection button:nth-child(1) {
-            background: #4caf50; /* Green */
+            background: #9c27b0; /* Purple */
         }
 
         .team-selection button:nth-child(2) {
-            background: #ff9800; /* Orange */
+            background: #8e24aa; /* Darker Purple */
         }
 
         .team-selection button:nth-child(3) {
-            background: #9c27b0; /* Purple */
+            background: #ab47bc; /* Lighter Purple */
         }
 
         .team-selection button {
@@ -94,24 +94,24 @@
 
         /* Share Button Styling */
         .share-button {
-            background: #1976d2; /* Blue */
+            background: #6a1b9a; /* Medium Purple */
             color: #fff;
             border: none;
-            border-radius: 50%; /* Circular Shape */
-            padding: 15px;
-            font-size: 1.5rem;
+            border-radius: 50%; /* Perfect Circle */
+            width: 60px; /* Fixed Width */
+            height: 60px; /* Fixed Height */
             cursor: pointer;
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
             transition: background 0.3s, transform 0.1s;
             margin-top: 20px; /* Spacing from Team Buttons */
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
         }
 
         /* Hover Effect for Share Button */
         .share-button:hover {
-            background: #1565c0; /* Darker Blue */
+            background: #4a148c; /* Darker Purple */
         }
 
         /* Active State for Share Button */
@@ -121,7 +121,7 @@
 
         /* Share Icon Styling */
         .share-icon {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
 
         /* Responsive Adjustments */
@@ -135,7 +135,8 @@
             }
 
             .share-button {
-                padding: 12px;
+                width: 50px; /* Adjusted Size for Smaller Screens */
+                height: 50px;
                 font-size: 1.2rem;
             }
         }
