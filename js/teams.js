@@ -13,7 +13,7 @@ const teamColors = ['#f2d7d5', '#d5f2d7', '#d7d5f2', '#f2ecd5']; // رنگ‌ه�
 let teamsData = [];
 for (let i = 0; i < numberOfTeams; i++) {
   teamsData.push({
-    name: `Team name ${i+1}`,
+    name: `Team ${i+1}`,
     score: 0
   });
 }
