@@ -12,9 +12,11 @@ const numberOfTeams = getNumberOfTeams();
 // Pastel colors for team cards
 const teamColors = ['#f2d7d5', '#d5f2d7', '#d7d5f2', '#f2ecd5'];
 
-// Slightly darker tones for buttons
-const addButtonColors = ['#e28c89', '#a8e1ab', '#b5aaf2', '#e2d597'];
-const subtractButtonColors = ['#c77974', '#8fd693', '#9f92f2', '#d2c57b'];
+// Darker tones for buttons
+// Make '+' buttons darker to stand out (more vibrant):
+const addButtonColors = ['#d2605e', '#5fa864', '#6a60d2', '#c6b24a'];
+// Slightly lighter for '-' buttons:
+const subtractButtonColors = ['#e28c89', '#a8e1ab', '#b5aaf2', '#e2d597'];
 
 let teamsData = [];
 for (let i = 0; i < numberOfTeams; i++) {
@@ -51,19 +53,18 @@ teamsData.forEach((team, index) => {
   scoreDisplay.innerText = team.score;
   scoreDisplay.style.userSelect = 'none';
 
-  // Create a row container to hold subtract button, score, and add button in one line
   const rowContainer = document.createElement('div');
   rowContainer.style.display = 'flex';
   rowContainer.style.alignItems = 'center';
   rowContainer.style.justifyContent = 'space-between';
   rowContainer.style.width = '100%';
-  rowContainer.style.gap = '20px'; // space between elements
+  rowContainer.style.gap = '20px';
   rowContainer.style.marginTop = '10px';
 
   // Subtract button (circle)
   const subtractButton = document.createElement('button');
   subtractButton.innerText = '-';
-  styleButton(subtractButton, subtractButtonColors[index], true); // true for circle
+  styleButton(subtractButton, subtractButtonColors[index], true); 
   subtractButton.style.fontSize = '2rem';
 
   // Add button (circle)
@@ -72,7 +73,6 @@ teamsData.forEach((team, index) => {
   styleButton(addButton, addButtonColors[index], true);
   addButton.style.fontSize = '2rem';
 
-  // Add events with preventDefault to avoid highlighting/copy
   addButton.addEventListener('mousedown', (e) => { e.preventDefault(); startHold(addButton, scoreDisplay, () => {
     teamsData[index].score++;
     updateScores();
@@ -84,7 +84,6 @@ teamsData.forEach((team, index) => {
     }
   }); });
 
-  // Touch events for mobile
   addButton.addEventListener('touchstart', (e) => { e.preventDefault(); startHold(addButton, scoreDisplay, () => {
     teamsData[index].score++;
     updateScores();
@@ -117,7 +116,7 @@ let animationInterval;
 let holding = false;
 
 /**
- * Style the button with given color and shape (circle if isCircle is true).
+ * Styles the button. Uses flex to center the icon.
  */
 function styleButton(btn, color, isCircle) {
   btn.style.backgroundColor = color;
@@ -133,13 +132,13 @@ function styleButton(btn, color, isCircle) {
   btn.style.webkitUserSelect = 'none';
   btn.style.MozUserSelect = 'none';
   btn.style.webkitTouchCallout = 'none';
+  btn.style.display = 'flex';
+  btn.style.alignItems = 'center';
+  btn.style.justifyContent = 'center';
 }
 
 /**
  * Start hold process.
- * - 2s hold required.
- * - Pulse animation on score and button.
- * - After 2s, callback executed.
  */
 function startHold(button, scoreDisplay, callback) {
   holding = true;
@@ -222,8 +221,7 @@ function updateScores() {
 
   teamsData.forEach((t, i) => {
     scoreDisplays[i].innerText = t.score;
-    const card = scoreDisplays[i].parentElement.parentElement; 
-    // parentElement twice because now scoreDisplays are inside rowContainer which is inside team-card.
+    const card = scoreDisplays[i].parentElement.parentElement;
     if (winnerFound) {
       if (i === winnerIndex) {
         card.style.backgroundColor = 'green';
